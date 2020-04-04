@@ -4,9 +4,10 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const Port = process.env.PORT || 3000;
-const DbUrl = process.env.CHAT_APP_MONGO_CONNECTION || '';
+const DbUrl = process.env.DB_CONN || '';
 
 const Message = mongoose.model('Message', {
     name: String,
